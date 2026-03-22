@@ -103,7 +103,6 @@ This project includes a full monitoring stack built using Prometheus and Grafana
 ### 🖥️ Dashboard Example
 
 ![Monitoring Dashboard](docs/monitoring/dashboard.png)
-
 ---
 
 ## 🧠 Key DevOps Concepts Demonstrated
