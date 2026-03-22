@@ -67,3 +67,55 @@ NetBox → Ansible Dynamic Inventory → SSH → Managed Hosts → NGINX Load Ba
 
 ## 📂 Repository Structure
 
+---
+
+## 📊 Monitoring & Observability
+
+This project includes a full monitoring stack built using Prometheus and Grafana to observe infrastructure in real time.
+
+### 🔧 Components
+
+- **Node Exporter** installed on:
+  - Load balancer (`lb-01`)
+  - Backend servers (`web-01`, `web-02`)
+- **Prometheus** deployed on `monitor-01`
+- **Grafana** deployed on `monitor-01`
+
+### ⚙️ Features
+
+- Real-time monitoring of:
+  - CPU usage
+  - Memory usage
+  - Disk utilization
+  - Network traffic
+  - System load and uptime
+- Centralized metrics collection using Prometheus
+- Visualization through Grafana dashboards
+- Per-node filtering (load balancer vs backend servers)
+
+### 🔄 Validation
+
+- Verified all Prometheus targets are **UP**
+- Confirmed Node Exporter metrics on port `9100`
+- Successfully visualized data in Grafana
+- Observed metrics across multiple nodes in real time
+
+### 🖥️ Dashboard Example
+
+![Monitoring Dashboard](docs/monitoring/dashboard.png)
+
+---
+
+## 🧠 Key DevOps Concepts Demonstrated
+
+- Infrastructure as Code (Ansible)
+- Configuration Management
+- Load Balancing (NGINX)
+- High Availability & Failover
+- Monitoring & Observability
+- Metrics Collection (Prometheus)
+- Visualization (Grafana)
+- SSH Automation & Security
+- Troubleshooting (SELinux, networking)
+
+---
