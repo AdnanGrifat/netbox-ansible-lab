@@ -1,0 +1,38 @@
+---
+- name: Configure NGINX load balancer
+  hosts: load_balancer
+  become: true
+
+  tasks:
+    - name: Install nginx
+      yum:
+        name: nginx
+        state: present
+
+    - name: Enable SELinux boolean for proxy connections
+      seboolean:
+        name: httpd_can_network_connect
+        state: true
+        persistent: true
+
+    - name: Deploy load balancer config
+      template:
+        src: /root/templates/loadbalancer.conf.j2
+        dest: /etc/nginx/conf.d/loadbalancer.conf
+        owner: root
+        group: root
+        mode: '0644'
+      notify: restart nginx
+
+    - name: Ensure nginx service is enabled and running
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+

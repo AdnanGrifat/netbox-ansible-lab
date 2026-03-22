@@ -3,3 +3,7 @@ api_endpoint: http://127.0.0.1:8000
 token: d5Who0I3LTUvV08AvzIqIabzndk1eafEIAi4KNOq
 validate_certs: false
 
+group_by:
+  - device_roles
+
+

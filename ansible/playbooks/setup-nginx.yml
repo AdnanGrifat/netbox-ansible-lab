@@ -4,7 +4,7 @@
 
   tasks:
     - name: Install nginx
-      dnf:
+      package:
         name: nginx
         state: present
 
@@ -14,5 +14,8 @@
         state: started
         enabled: true
 
-
+    - name: Deploy custom index page
+      template:
+        src: ../templates/index.html.j2
+        dest: /var/www/html/index.html
 
